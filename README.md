@@ -40,6 +40,11 @@ From the pop up a list of available plugins, select `Create V2Neo Thumbnail`. On
 
 ![Thumbnail Plugin](doc/ThumbnailParam.png)
 
+You can choose a file path for a default JPG Image. It's recommanded to use a 200x200px JPG. You must choose a JPG file.
+
+You can change the maximum attempts before switching to the default image. I add a limit of 50 because each Snapshot creation take time, even with a good computer the delay is already noticable for 10 attempts.
+If the snapshot isn't working at all, the attempts stop after 2 tries in a row. If the snapshot work but the JPG conversion work badly, there will be that amount of tries.
+
 Finally close the dialog.
 
 ## Slice as you normally would
