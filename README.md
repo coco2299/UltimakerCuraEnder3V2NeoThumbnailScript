@@ -40,10 +40,16 @@ From the pop up a list of available plugins, select `Create V2Neo Thumbnail`. On
 
 ![Thumbnail Plugin](doc/ThumbnailParam.png)
 
-You can choose a file path for a default JPG Image. It's recommanded to use a 200x200px JPG. You must choose a JPG file.
+It may happen that Cura cannot create the snapshot. In this case, the specified image in the file path will be used instead.
+The image must be a JPEG. I recommend a square image with a size of 200x200 px. The image will necessarily be resized to the requested size by losing the ratio.
+If no image is defined, a default image is provided.
 
 You can change the maximum attempts before switching to the default image. I add a limit of 50 because each Snapshot creation take time, even with a good computer the delay is already noticable for 10 attempts.
 If the snapshot isn't working at all, the attempts stop after 2 tries in a row. If the snapshot work but the JPG conversion work badly, there will be that amount of tries.
+
+It is possible to set the maximum size you want for the size of the image file. If it is too large, the printer may take time to load the rendering and may not even load at all.
+
+According to my first tests, 8000 seems to work without too many problems. If you're having trouble, try a lower value. The image quality will be affected.
 
 Finally close the dialog.
 
@@ -68,6 +74,11 @@ Then print from your printer's user interface
 - Look at the gcode file generated, the **first** should be a line should look like (the numbers may be different):
 
   `; jpg begin 200*200 3486 3 197 500`
+
+- The file path must be a JPEG image. The path must finish by .jpg or .jpeg.
+- The image will be scaled to the specified size without keeping the ratio. If the image lose ratio, it's normal. Prefer a squared image.
+
+- If the printer takes a long time to display the image, maybe the maximum thumbnail length is too high. Consider reducing it.
 
 # Octoprint
 
